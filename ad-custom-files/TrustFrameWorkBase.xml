@@ -352,6 +352,11 @@
         <UserInputType>TextBox</UserInputType>
       </ClaimType>
 
+      <ClaimType Id="signUpRequestBody">
+        <DisplayName>SignUp request body</DisplayName>
+        <DataType>string</DataType>
+      </ClaimType>
+
     </ClaimsSchema>
 
     <ClaimsTransformations>
@@ -425,6 +430,24 @@
           <InputParameter Id="AssertIfRightOperandIsNotPresent" DataType="boolean" Value="true" />
           <InputParameter Id="TreatAsEqualIfWithinMillseconds" DataType="int" Value="300000" />
         </InputParameters>
+      </ClaimsTransformation>    
+      
+      <!--claims transformation for REST-Api-Call Payload -->
+      <ClaimsTransformation Id="GenerateSignUpRequestBody" TransformationMethod="GenerateJson">
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="userPrincipalName" />
+          <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="username" />
+          <InputClaim ClaimTypeReferenceId="businessName" TransformationClaimType="businessName" />
+          <InputClaim ClaimTypeReferenceId="contact" TransformationClaimType="phoneNo" />
+          <InputClaim ClaimTypeReferenceId="referral_code" TransformationClaimType="referral_code" />
+        </InputClaims>
+        <InputParameters>
+          <InputParameter Id="firstName" DataType="string" Value="" />
+          <InputParameter Id="lastName" DataType="string" Value="" />
+        </InputParameters>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="signUpRequestBody" TransformationClaimType="outputClaim" />
+        </OutputClaims>
       </ClaimsTransformation>
 
     </ClaimsTransformations>
@@ -1053,6 +1076,31 @@
           </ValidationTechnicalProfiles>
         </TechnicalProfile>
 
+        <TechnicalProfile Id="REST-Call">
+          <DisplayName>Notify backend about user registration</DisplayName>
+          <!-- https://learn.microsoft.com/en-us/azure/active-directory-b2c/restful-technical-profile -->
+          <Protocol Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Name="Proprietary"/>
+          <Metadata>
+            <Item Key="ServiceUrl">https://analytics-api.apps.digitaldots.ai/api/v1/analytics</Item>
+            <!-- <Item Key="AuthenticationType">None</Item> -->
+            <Item Key="AuthenticationType">Basic</Item>
+            <Item Key="SendClaimsIn">Body</Item>
+            <Item Key="ClaimUsedForRequestPayload">signUpRequestBody</Item>
+            <Item Key="DefaultUserMessageIfRequestFailed">Cannot process your request right now, please try again later.</Item>
+          </Metadata>
+          <CryptographicKeys>
+            <Key Id="BasicAuthenticationUsername" StorageReferenceId="B2C_1A_BasicUserName"/>
+            <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_BasicPassword"/>
+          </CryptographicKeys>
+          <InputClaimsTransformations>
+            <InputClaimsTransformation ReferenceId="GenerateSignUpRequestBody" />
+          </InputClaimsTransformations>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="signUpRequestBody" />
+          </InputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+
       </TechnicalProfiles>
     </ClaimsProvider>
 
@@ -1262,7 +1310,15 @@
           </ClaimsExchanges>
         </OrchestrationStep>
 
-        <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        <!-- <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" /> -->
+
+        <OrchestrationStep Order="7" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="RESTAddUser" TechnicalProfileReferenceId="REST-Call" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+
 
       </OrchestrationSteps>
       <ClientDefinition ReferenceId="DefaultWeb" />
