@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TrustFrameworkPolicy
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
+    PolicySchemaVersion="0.3.0.0"
+    TenantId="rayvinc.onmicrosoft.com"
+    PolicyId="B2C_1A_TrustFrameworkExtensions"
+    PublicPolicyUri="http://rayvinc.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
+
+    <BasePolicy>
+        <TenantId>rayvinc.onmicrosoft.com</TenantId>
+        <PolicyId>B2C_1A_TrustFrameworkLocalization</PolicyId>
+    </BasePolicy>
+    <BuildingBlocks>
+
+    </BuildingBlocks>
+
+    <ClaimsProviders>
+
+        <ClaimsProvider>
+            <DisplayName>Facebook</DisplayName>
+            <TechnicalProfiles>
+                <TechnicalProfile Id="Facebook-OAUTH">
+                    <Metadata>
+                        <Item Key="client_id">524857163360888</Item>
+                        <Item Key="scope">email public_profile</Item>
+                        <Item Key="ClaimsEndpoint">
+                            https://graph.facebook.com/me?fields=id,first_name,last_name,name,email</Item>
+                    </Metadata>
+                </TechnicalProfile>
+            </TechnicalProfiles>
+        </ClaimsProvider>
+
+        <ClaimsProvider>
+            <Domain>google.com</Domain>
+            <DisplayName>Google</DisplayName>
+            <TechnicalProfiles>
+                <TechnicalProfile Id="Google-OAuth2">
+                    <DisplayName>Google</DisplayName>
+                    <Protocol Name="OAuth2" />
+                    <Metadata>
+                        <Item Key="client_id">
+                            687975472698-1btmk30hdrggrfhq0vmfokfueej2avrs.apps.googleusercontent.com</Item>
+                        <Item Key="scope">email profile</Item>
+                        <Item Key="ClaimsEndpoint">https://www.googleapis.com/oauth2/v1/userinfo</Item>
+                    </Metadata>
+                </TechnicalProfile>
+            </TechnicalProfiles>
+        </ClaimsProvider>
+
+
+        <ClaimsProvider>
+            <DisplayName>Local Account SignIn</DisplayName>
+            <TechnicalProfiles>
+                <TechnicalProfile Id="login-NonInteractive">
+                    <Metadata>
+                        <Item Key="client_id">d16a5295-6a7a-44df-a593-bb5ca819d3ba</Item>
+                        <Item Key="IdTokenAudience">2879df95-8263-45bc-ac21-a176c70b3f92</Item>
+                    </Metadata>
+                    <InputClaims>
+                        <InputClaim ClaimTypeReferenceId="client_id"
+                            DefaultValue="d16a5295-6a7a-44df-a593-bb5ca819d3ba" />
+                        <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource"
+                            DefaultValue="2879df95-8263-45bc-ac21-a176c70b3f92" />
+                    </InputClaims>
+                </TechnicalProfile>
+            </TechnicalProfiles>
+        </ClaimsProvider>
+
+    </ClaimsProviders>
+
+    <!--UserJourneys>
+	
+	</UserJourneys-->
+
+</TrustFrameworkPolicy>
