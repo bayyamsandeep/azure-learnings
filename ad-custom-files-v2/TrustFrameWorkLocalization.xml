@@ -1,6 +1,9 @@
 <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="smartbasket.onmicrosoft.com" PolicyId="B2C_1A_TrustFrameworkLocalization" PublicPolicyUri="http://smartbasket.onmicrosoft.com/B2C_1A_TrustFrameworkLocalization" TenantObjectId="fc2e79fb-b58e-480b-a0fc-97b3f5096b71">
+    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0"
+    TenantId="smartbasket.onmicrosoft.com" PolicyId="B2C_1A_TrustFrameworkLocalization"
+    PublicPolicyUri="http://smartbasket.onmicrosoft.com/B2C_1A_TrustFrameworkLocalization"
+    TenantObjectId="fc2e79fb-b58e-480b-a0fc-97b3f5096b71">
     <BasePolicy>
         <TenantId>smartbasket.onmicrosoft.com</TenantId>
         <PolicyId>B2C_1A_TrustFrameworkBase</PolicyId>
@@ -9,43 +12,50 @@
         <ContentDefinitions>
             <ContentDefinition Id="api.signuporsignin">
                 <LocalizedResourcesReferences MergeBehavior="Prepend">
-                    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.signuporsignin.en" />
+                    <LocalizedResourcesReference Language="en"
+                        LocalizedResourcesReferenceId="api.signuporsignin.en" />
                     <!-- Add more languages here -->
                 </LocalizedResourcesReferences>
             </ContentDefinition>
             <ContentDefinition Id="api.localaccountsignup">
                 <LocalizedResourcesReferences MergeBehavior="Prepend">
-                    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
+                    <LocalizedResourcesReference Language="en"
+                        LocalizedResourcesReferenceId="api.localaccountsignup.en" />
                     <!-- Add more languages here -->
                 </LocalizedResourcesReferences>
             </ContentDefinition>
             <ContentDefinition Id="api.selfasserted">
                 <LocalizedResourcesReferences MergeBehavior="Prepend">
-                    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.selfasserted.en" />
+                    <LocalizedResourcesReference Language="en"
+                        LocalizedResourcesReferenceId="api.selfasserted.en" />
                     <!-- Add more languages here -->
                 </LocalizedResourcesReferences>
             </ContentDefinition>
             <ContentDefinition Id="api.localaccountpasswordreset">
                 <LocalizedResourcesReferences MergeBehavior="Prepend">
-                    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountpasswordreset.en" />
+                    <LocalizedResourcesReference Language="en"
+                        LocalizedResourcesReferenceId="api.localaccountpasswordreset.en" />
                     <!-- Add more languages here -->
                 </LocalizedResourcesReferences>
             </ContentDefinition>
             <ContentDefinition Id="api.idpselections">
                 <LocalizedResourcesReferences MergeBehavior="Prepend">
-                    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.idpselections.en" />
+                    <LocalizedResourcesReference Language="en"
+                        LocalizedResourcesReferenceId="api.idpselections.en" />
                     <!-- Add more languages here -->
                 </LocalizedResourcesReferences>
             </ContentDefinition>
             <ContentDefinition Id="api.localaccountsignin">
                 <LocalizedResourcesReferences MergeBehavior="Prepend">
-                    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignin.en" />
+                    <LocalizedResourcesReference Language="en"
+                        LocalizedResourcesReferenceId="api.localaccountsignin.en" />
                     <!-- Add more languages here -->
                 </LocalizedResourcesReferences>
             </ContentDefinition>
             <ContentDefinition Id="api.selfasserted.profileupdate">
                 <LocalizedResourcesReferences MergeBehavior="Prepend">
-                    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.selfasserted.profileupdate.en" />
+                    <LocalizedResourcesReference Language="en"
+                        LocalizedResourcesReferenceId="api.selfasserted.profileupdate.en" />
                     <!-- Add more languages here -->
                 </LocalizedResourcesReferences>
             </ContentDefinition>
@@ -56,11 +66,13 @@
             </SupportedLanguages>
             <LocalizedResources Id="api.signuporsignin.en">
                 <LocalizedStrings>
-                    <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="signInName"
+                        StringId="DisplayName">Email Address</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in
                         with your {0}</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="password"
+                        StringId="DisplayName">Password</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please
                         enter your password</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please
@@ -84,48 +96,71 @@
           <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
                     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">
                         Facebook</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="ResourceOwnerFlowInvalidCredentials">Your password is incorrect.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="ResourceOwnerFlowInvalidCredentials">Your password is incorrect.</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find
                         your account.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
                     <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid
                         username or password.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your account has been locked.
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfUserAccountDisabled">Your account has been locked.
                         Contact your support person to unlock it, then try again.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Your account is temporarily locked
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfUserAccountLocked">Your account is temporarily locked
                         to prevent unauthorized use. Try again later.</LocalizedString>
                     <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">There
                         are too many requests at this moment. Please wait for some time and try
                         again.</LocalizedString>
                 </LocalizedStrings>
             </LocalizedResources>
-            <!--Local account sign-up page English-->
+            <!--Local
+            account sign-up page English-->
             <LocalizedResources Id="api.localaccountsignup.en">
                 <LocalizedStrings>
-                    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Email address that can be used to contact you.</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address.</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New Password</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="UserHelpText">Enter new password</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the
+                    <LocalizedString ElementType="ClaimType" ElementId="email"
+                        StringId="DisplayName">Email Address</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="email"
+                        StringId="UserHelpText">Email address that can be used to contact you.</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="email"
+                        StringId="PatternHelpText">Please enter a valid email address.</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="newPassword"
+                        StringId="DisplayName">New Password</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="newPassword"
+                        StringId="UserHelpText">Enter new password</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="newPassword"
+                        StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the
                         following: Lowercase characters, uppercase characters, digits (0-9), and one
                         or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : '
                         , ? / ` ~ " ( ) ; .</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm New Password</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="UserHelpText">Confirm new password</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the
+                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword"
+                        StringId="DisplayName">Confirm New Password</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword"
+                        StringId="UserHelpText">Confirm new password</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword"
+                        StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the
                         following: Lowercase characters, uppercase characters, digits (0-9), and one
                         or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : '
                         , ? / ` ~ " ( ) ; .</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="DisplayName">Display Name</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="UserHelpText">Your display name.</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="DisplayName">Surname</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="UserHelpText">Your surname (also known as family name or last
+                    <LocalizedString ElementType="ClaimType" ElementId="displayName"
+                        StringId="DisplayName">Display Name</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="displayName"
+                        StringId="UserHelpText">Your display name.</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="surname"
+                        StringId="DisplayName">Surname</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="surname"
+                        StringId="UserHelpText">Your surname (also known as family name or last
                         name).</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="DisplayName">Given Name</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="UserHelpText">Your given name (also known as first name).</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="givenName"
+                        StringId="DisplayName">Given Name</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="givenName"
+                        StringId="UserHelpText">Your given name (also known as first name).</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="button_continue">Create</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="error_fieldIncorrect">One or
                         more fields are filled out incorrectly. Please check your entries and try
@@ -170,13 +205,19 @@
                     <LocalizedString ElementType="ErrorMessage" StringId="ServiceThrottled">There
                         are too many requests at this moment. Please wait for some time and try
                         again.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimNotVerified">Claim not verified: {0}</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">A user with the
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfClaimNotVerified">Claim not verified: {0}</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfClaimsPrincipalAlreadyExists">A user with the
                         specified ID already exists. Please choose a different one.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfIncorrectPattern">Incorrect pattern for: {0}</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidInput">{0} has invalid input.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMissingRequiredElement">Missing required element: {0}</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfValidationError">Error in validation by: {0}</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfIncorrectPattern">Incorrect pattern for: {0}</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidInput">{0}
+                        has invalid input.</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfMissingRequiredElement">Missing required element: {0}</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfValidationError">Error in validation by: {0}</LocalizedString>
 
                 </LocalizedStrings>
             </LocalizedResources>
@@ -184,25 +225,35 @@
             <!-- Self-asserted page English-->
             <LocalizedResources Id="api.selfasserted.en">
                 <LocalizedStrings>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">You are already
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfClaimsPrincipalAlreadyExists">You are already
                         registered, please press the back button and sign in instead.</LocalizedString>
                 </LocalizedStrings>
             </LocalizedResources>
             <!-- Password reset page English-->
             <LocalizedResources Id="api.localaccountpasswordreset.en">
                 <LocalizedStrings>
-                    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Email address that can be used to contact you.</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address.</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New Password</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="UserHelpText">Enter new password</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the
+                    <LocalizedString ElementType="ClaimType" ElementId="email"
+                        StringId="DisplayName">Email Address</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="email"
+                        StringId="UserHelpText">Email address that can be used to contact you.</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="email"
+                        StringId="PatternHelpText">Please enter a valid email address.</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="newPassword"
+                        StringId="DisplayName">New Password</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="newPassword"
+                        StringId="UserHelpText">Enter new password</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="newPassword"
+                        StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the
                         following: Lowercase characters, uppercase characters, digits (0-9), and one
                         or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : '
                         , ? / ` ~ " ( ) ; .</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm New Password</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="UserHelpText">Confirm new password</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the
+                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword"
+                        StringId="DisplayName">Confirm New Password</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword"
+                        StringId="UserHelpText">Confirm new password</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="reenterPassword"
+                        StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the
                         following: Lowercase characters, uppercase characters, digits (0-9), and one
                         or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : '
                         , ? / ` ~ " ( ) ; .</LocalizedString>
@@ -214,9 +265,11 @@
                         again.</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="button_continue">Continue</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be
                         found for the provided user ID.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your
                         account has been locked. Contact your support person to unlock it, then try
                         again.</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="required_field">This
@@ -248,21 +301,27 @@
                     <LocalizedString ElementType="ErrorMessage" StringId="ServiceThrottled">There
                         are too many requests at this moment. Please wait for some time and try
                         again.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimNotVerified">Claim not verified: {0}</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">A user with the
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfClaimNotVerified">Claim not verified: {0}</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfClaimsPrincipalAlreadyExists">A user with the
                         specified ID already exists. Please choose a different one.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfIncorrectPattern">Incorrect pattern for: {0}</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfIncorrectPattern">Incorrect pattern for: {0}</LocalizedString>
                     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidInput">{0}
                         has invalid input.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMissingRequiredElement">Missing required element: {0}</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfValidationError">Error in validation by: {0}</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfMissingRequiredElement">Missing required element: {0}</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfValidationError">Error in validation by: {0}</LocalizedString>
                 </LocalizedStrings>
             </LocalizedResources>
             <!-- Edit profile sign-in page English-->
             <LocalizedResources Id="api.idpselections.en">
                 <LocalizedStrings>
                     <LocalizedString ElementType="UxElement" StringId="intro">Sign in</LocalizedString>
-                    <LocalizedString ElementType="ClaimsProvider" StringId="LocalAccountSigninEmailExchange">Local Account Signin</LocalizedString>
+                    <LocalizedString ElementType="ClaimsProvider"
+                        StringId="LocalAccountSigninEmailExchange">Local Account Signin</LocalizedString>
                     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">
                         Facebook</LocalizedString>
                 </LocalizedStrings>
@@ -270,21 +329,30 @@
             <!-- Edit profile sign-in with local account English-->
             <LocalizedResources Id="api.localaccountsignin.en">
                 <LocalizedStrings>
-                    <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="signInName"
+                        StringId="DisplayName">Email Address</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="password"
+                        StringId="DisplayName">Password</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="button_continue">Continue</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="ResourceOwnerFlowInvalidCredentials">Your password is incorrect.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="ResourceOwnerFlowInvalidCredentials">Your password is incorrect.</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find
                         your account.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
                     <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid
                         username or password.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your account has been locked.
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfUserAccountDisabled">Your account has been locked.
                         Contact your support person to unlock it, then try again.</LocalizedString>
-                    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Your account is temporarily locked
+                    <LocalizedString ElementType="ErrorMessage"
+                        StringId="UserMessageIfUserAccountLocked">Your account is temporarily locked
                         to prevent unauthorized use. Try again later.</LocalizedString>
                     <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">There
                         are too many requests at this moment. Please wait for some time and try
@@ -294,13 +362,19 @@
             <!-- Edit profile page English-->
             <LocalizedResources Id="api.selfasserted.profileupdate.en">
                 <LocalizedStrings>
-                    <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="DisplayName">Display Name</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="UserHelpText">Your display name.</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="DisplayName">Surname</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="UserHelpText">Your surname (also known as family name or last
+                    <LocalizedString ElementType="ClaimType" ElementId="displayName"
+                        StringId="DisplayName">Display Name</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="displayName"
+                        StringId="UserHelpText">Your display name.</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="surname"
+                        StringId="DisplayName">Surname</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="surname"
+                        StringId="UserHelpText">Your surname (also known as family name or last
                         name).</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="DisplayName">Given Name</LocalizedString>
-                    <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="UserHelpText">Your given name (also known as first name).</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="givenName"
+                        StringId="DisplayName">Given Name</LocalizedString>
+                    <LocalizedString ElementType="ClaimType" ElementId="givenName"
+                        StringId="UserHelpText">Your given name (also known as first name).</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="button_continue">Continue</LocalizedString>
                     <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
                 </LocalizedStrings>

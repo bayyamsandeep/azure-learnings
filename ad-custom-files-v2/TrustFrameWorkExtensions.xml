@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="smartbasket.onmicrosoft.com" PolicyId="B2C_1A_TrustFrameworkExtensions" PublicPolicyUri="http://smartbasket.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
+    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0"
+    TenantId="smartbasket.onmicrosoft.com" PolicyId="B2C_1A_TrustFrameworkExtensions"
+    PublicPolicyUri="http://smartbasket.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
 
     <BasePolicy>
         <TenantId>smartbasket.onmicrosoft.com</TenantId>
@@ -20,7 +22,8 @@
                     <Metadata>
                         <Item Key="client_id">524857163360888</Item>
                         <Item Key="scope">email public_profile</Item>
-                        <Item Key="ClaimsEndpoint"> https://graph.facebook.com/me?fields=id,first_name,last_name,name,email</Item>
+                        <Item Key="ClaimsEndpoint">
+                            https://graph.facebook.com/me?fields=id,first_name,last_name,name,email</Item>
                     </Metadata>
                 </TechnicalProfile>
             </TechnicalProfiles>
@@ -53,8 +56,10 @@
                         <Item Key="IdTokenAudience">5a54eaf8-b0c8-4b85-a616-7cded77a66a7</Item>
                     </Metadata>
                     <InputClaims>
-                        <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="d6268324-1b0e-4837-b59d-65c2527bf270" />
-                        <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="5a54eaf8-b0c8-4b85-a616-7cded77a66a7" />
+                        <InputClaim ClaimTypeReferenceId="client_id"
+                            DefaultValue="d6268324-1b0e-4837-b59d-65c2527bf270" />
+                        <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource"
+                            DefaultValue="5a54eaf8-b0c8-4b85-a616-7cded77a66a7" />
                     </InputClaims>
                 </TechnicalProfile>
             </TechnicalProfiles>

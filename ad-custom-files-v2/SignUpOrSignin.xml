@@ -1,6 +1,9 @@
 <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="smartbasket.onmicrosoft.com" PolicyId="B2C_1A_signup_signin" PublicPolicyUri="http://smartbasket.onmicrosoft.com/B2C_1A_signup_signin" TenantObjectId="fc2e79fb-b58e-480b-a0fc-97b3f5096b71">
+    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0"
+    TenantId="smartbasket.onmicrosoft.com" PolicyId="B2C_1A_signup_signin"
+    PublicPolicyUri="http://smartbasket.onmicrosoft.com/B2C_1A_signup_signin"
+    TenantObjectId="fc2e79fb-b58e-480b-a0fc-97b3f5096b71">
     <BasePolicy>
         <TenantId>smartbasket.onmicrosoft.com</TenantId>
         <PolicyId>B2C_1A_TrustFrameworkExtensions</PolicyId>
@@ -25,7 +28,8 @@
                 <OutputClaim ClaimTypeReferenceId="referral_code" />
                 <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
                 <OutputClaim ClaimTypeReferenceId="identityProvider" />
-                <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+                <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true"
+                    DefaultValue="{Policy:TenantObjectId}" />
                 <OutputClaim ClaimTypeReferenceId="isForgotPassword" DefaultValue="false" />
             </OutputClaims>
             <SubjectNamingInfo ClaimType="sub" />
