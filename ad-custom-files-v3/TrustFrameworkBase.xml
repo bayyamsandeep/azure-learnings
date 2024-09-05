@@ -372,7 +372,7 @@
             </ClaimType>
 
             <!-- Agree TERMS AND CONDITIONS-->
-            <ClaimType Id="extension_AgreeTnCs">
+            <ClaimType Id="AgreeTnCs">
                 <DisplayName></DisplayName>
                 <DataType>string</DataType>
                 <UserInputType>CheckboxMultiSelect</UserInputType>
@@ -381,7 +381,7 @@
                 </Restriction>
             </ClaimType>
 
-            <ClaimType Id="extension_ReferralCode">
+            <ClaimType Id="ReferralCode">
                 <DisplayName>Referral Code (Optional)</DisplayName>
                 <DataType>string</DataType>
                 <UserInputType>TextBox</UserInputType>
@@ -391,6 +391,16 @@
                 <DisplayName>isForgotPassword</DisplayName>
                 <DataType>boolean</DataType>
                 <AdminHelpText>Whether the user has selected Forgot your Password</AdminHelpText>
+            </ClaimType>
+
+            <ClaimType Id="bearerToken">
+                <DisplayName>Bearer token</DisplayName>
+                <DataType>string</DataType>
+            </ClaimType>
+
+            <ClaimType Id="client_secret">
+                <DisplayName>client_secret</DisplayName>
+                <DataType>string</DataType>
             </ClaimType>
 
         </ClaimsSchema>
@@ -681,8 +691,8 @@
                         Additional Required Claims-->
                         <OutputClaim ClaimTypeReferenceId="mobilePhone"
                             PartnerClaimType="mobile" Required="true" />
-                        <OutputClaim ClaimTypeReferenceId="extension_ReferralCode" />
-                        <OutputClaim ClaimTypeReferenceId="extension_AgreeTnCs" Required="true" />
+                        <OutputClaim ClaimTypeReferenceId="ReferralCode" />
+                        <OutputClaim ClaimTypeReferenceId="AgreeTnCs" Required="true" />
                     </OutputClaims>
                     <OutputClaimsTransformations>
                         <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
@@ -728,8 +738,8 @@
                         Additional Required Claims-->
                         <OutputClaim ClaimTypeReferenceId="mobilePhone"
                             PartnerClaimType="mobile" Required="true" />
-                        <OutputClaim ClaimTypeReferenceId="extension_ReferralCode" />
-                        <OutputClaim ClaimTypeReferenceId="extension_AgreeTnCs" Required="true" />
+                        <OutputClaim ClaimTypeReferenceId="ReferralCode" />
+                        <OutputClaim ClaimTypeReferenceId="AgreeTnCs" Required="true" />
 
                     </OutputClaims>
                     <OutputClaimsTransformations>
@@ -1157,7 +1167,7 @@
                         <!--Sample:
                         Set input the ReadOnlyEmail claim type to prefilled the email address-->
                         <InputClaim ClaimTypeReferenceId="readOnlyEmail" />
-                        <InputClaim ClaimTypeReferenceId="extension_AgreeTnCs" DefaultValue="No" />
+                        <InputClaim ClaimTypeReferenceId="AgreeTnCs" DefaultValue="No" />
                     </InputClaims>
                     <OutputClaims>
                         <OutputClaim ClaimTypeReferenceId="objectId" />
@@ -1183,11 +1193,13 @@
                         <!-- Additional Required Claims-->
                         <OutputClaim ClaimTypeReferenceId="mobilePhone"
                             PartnerClaimType="mobile" Required="true" />
-                        <OutputClaim ClaimTypeReferenceId="extension_ReferralCode" />
-                        <OutputClaim ClaimTypeReferenceId="extension_AgreeTnCs" Required="true" />
+                        <OutputClaim ClaimTypeReferenceId="ReferralCode" />
+                        <OutputClaim ClaimTypeReferenceId="AgreeTnCs" Required="true" />
                     </OutputClaims>
                     <ValidationTechnicalProfiles>
                         <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+                        <ValidationTechnicalProfile ReferenceId="REST-GetAccessToken" />
+                        <ValidationTechnicalProfile ReferenceId="REST-API-SignUp" />
                     </ValidationTechnicalProfiles>
                     <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
                 </TechnicalProfile>
@@ -1286,7 +1298,42 @@
                     </ValidationTechnicalProfiles>
                 </TechnicalProfile>
 
-                <TechnicalProfile Id="REST-Call">
+                <TechnicalProfile Id="REST-GetAccessToken">
+                    <DisplayName>Request Access Token using Client Credentials</DisplayName>
+                    <Protocol Name="Proprietary"
+                        Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+                    <Metadata>
+                        <Item Key="METADATA">
+                            https://rayvinc.b2clogin.com/rayvinc.onmicrosoft.com/B2C_1A_SIGNUP_SIGNIN/v2.0/.well-known/openid-configuration</Item>
+                        <Item Key="ServiceUrl">
+                            https://rayvinc.b2clogin.com/rayvinc.onmicrosoft.com/B2C_1A_SIGNUP_SIGNIN/oauth2/v2.0/token</Item>
+                        <Item Key="AuthenticationType">None</Item>
+                        <Item Key="AllowInsecureAuthInProduction">true</Item>
+                        <Item Key="SendClaimsIn">Form</Item>
+                        <Item Key="DefaultUserMessageIfRequestFailed">An error occurred while trying
+                            to obtain access token from the server.</Item>
+                    </Metadata>
+                    <InputClaims>
+                        <InputClaim ClaimTypeReferenceId="client_id"
+                            DefaultValue="64853aff-75a8-48dc-829c-0767041b9837"
+                            AlwaysUseDefaultValue="true" />
+                        <InputClaim ClaimTypeReferenceId="client_secret"
+                            DefaultValue="5q~8Q~QB~StIrPHyJdoeJ~bRozFjTyo3Qw0lxdnj"
+                            AlwaysUseDefaultValue="true" />
+                        <InputClaim ClaimTypeReferenceId="grant_type"
+                            DefaultValue="client_credentials" AlwaysUseDefaultValue="true" />
+                        <InputClaim ClaimTypeReferenceId="scope"
+                            DefaultValue="https://rayvinc.onmicrosoft.com/64853aff-75a8-48dc-829c-0767041b9837/.default"
+                            AlwaysUseDefaultValue="true" />
+                    </InputClaims>
+                    <OutputClaims>
+                        <OutputClaim ClaimTypeReferenceId="bearerToken"
+                            PartnerClaimType="access_token" />
+                    </OutputClaims>
+                    <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+                </TechnicalProfile>
+
+                <TechnicalProfile Id="REST-API-SignUp">
                     <DisplayName>Notify backend about user registration</DisplayName>
                     <!--
                     https://learn.microsoft.com/en-us/azure/active-directory-b2c/restful-technical-profile -->
@@ -1296,25 +1343,21 @@
                     <Metadata>
                         <Item Key="ServiceUrl">
                             https://analytics-api.apps.digitaldots.ai/api/v1/analytics</Item>
-                        <Item Key="AuthenticationType">None</Item>
-                        <!-- <Item Key="AuthenticationType">Basic</Item> -->
+                        <Item Key="AuthenticationType">Bearer</Item>
+                        <Item Key="UseClaimAsBearerToken">bearerToken</Item>
+                        <Item Key="AllowInsecureAuthInProduction">false</Item>
                         <Item Key="SendClaimsIn">Body</Item>
                         <Item Key="DebugMode">true</Item>
-                        <Item Key="DefaultUserMessageIfRequestFailed">Cannot process your request
-                            right now, please try again later.</Item>
+                        <Item Key="DefaultUserMessageIfRequestFailed">An error occurred while
+                            notifying user registration details to backend service</Item>
                     </Metadata>
-                    <CryptographicKeys>
-                        <Key Id="BasicAuthenticationUsername"
-                            StorageReferenceId="B2C_1A_BasicUserName" />
-                        <Key Id="BasicAuthenticationPassword"
-                            StorageReferenceId="B2C_1A_BasicPassword" />
-                    </CryptographicKeys>
                     <InputClaims>
+                        <InputClaim ClaimTypeReferenceId="bearerToken" />
                         <InputClaim ClaimTypeReferenceId="objectId" />
                         <InputClaim ClaimTypeReferenceId="email" />
                         <InputClaim ClaimTypeReferenceId="displayName" />
                         <InputClaim ClaimTypeReferenceId="mobilePhone" />
-                        <InputClaim ClaimTypeReferenceId="extension_ReferralCode" />
+                        <InputClaim ClaimTypeReferenceId="ReferralCode" />
                     </InputClaims>
                     <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
                 </TechnicalProfile>
@@ -1584,13 +1627,7 @@
                     </ClaimsExchanges>
                 </OrchestrationStep>
 
-                <OrchestrationStep Order="9" Type="ClaimsExchange">
-                    <ClaimsExchanges>
-                        <ClaimsExchange Id="RESTAddUser" TechnicalProfileReferenceId="REST-Call" />
-                    </ClaimsExchanges>
-                </OrchestrationStep>
-
-                <OrchestrationStep Order="10" Type="SendClaims"
+                <OrchestrationStep Order="9" Type="SendClaims"
                     CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
 
             </OrchestrationSteps>
