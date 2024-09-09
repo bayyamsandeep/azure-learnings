@@ -924,7 +924,7 @@
           <!--https://learn.microsoft.com/en-us/azure/active-directory-b2c/restful-technical-profile -->
           <Protocol Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Name="Proprietary" />
           <Metadata>
-            <Item Key="ServiceUrl">https://analytics-api.apps.digitaldots.ai/api/v1/analytics</Item>
+            <Item Key="ServiceUrl">https://process-api.flyer.digitaldots.ai/api/v1/solutions/65322e5368db0a5c083d0fed/process/pa1l6e8e9m667162352/run</Item>
             <Item Key="AuthenticationType">Bearer</Item>
             <Item Key="UseClaimAsBearerToken">accessToken</Item>
             <Item Key="AllowInsecureAuthInProduction">false</Item>
